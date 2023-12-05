@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                        
+                        <div class="card mb-3">
+
+                            <div class="card-body">
+
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Inscription</h5>
+                                       </div>
+
+
+                                {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                                <div class="col-12">
+                                        <label for="yourName" class="form-label">Nom</label>
+
+                                        <div class="invalid-feedback">SVP, saisissez votre nom!</div>
+                                    {{ form_widget(form.name,{'attr':{'class':'form-control'}}) }}
+
+                                </div>
+
+                                    <div class="col-12">
+                                        <label for="yourEmail" class="form-label">Email</label>
+                                        {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                                        <div class="invalid-feedback">SVP, saisissez votre adresse mail!</div>
+                                    </div>
+
+
+
+                                    <div class="col-12">
+                                        <label for="yourPassword" class="form-label">Mot de passe</label>
+                                        {{ form_widget(form.password.first,{'attr':{'class':'form-control'}}) }}
+                                        <div class="invalid-feedback">SVP, saisissez un mot de passe!</div>
+                                    </div>
+
+                                <div class="col-12">
+                                    <label for="yourPassword" class="form-label">Confirmation de mot de passe</label>
+                                    {{ form_widget(form.password.second,{'attr':{'class':'form-control'}}) }}
+                                    <div class="invalid-feedback">SVP, saisissez votre mot de passe!</div>
+                                </div>
+
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required="">
+                                            <label class="form-check-label" for="acceptTerms">j'accepte les termes et conditions</label>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Créer un compte</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="small mb-0">vous avez déjà un compte? <a href="{{ path('app_login') }}">Log in</a></p>
+                                    </div>
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}

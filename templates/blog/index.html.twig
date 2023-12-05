@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 200px;padding: 30px;">
+<div class="col-lg-6">
+<div class="card">
+<div class="card-body">
+<a href="{{ path('addBlog') }}"><i class="ri-arrow-left-circle-fill" style="font-size= 500px;"></i>
+ </a>
+             <h5 class="card-title">LISTE DES BLOGS</h5>
+
+              <!-- Table with stripped rows -->
+              <table class="table table-striped">
+                <thead>
+   <th>titre</th>
+   <th>contenu</th>
+   <th>auteur</th>
+   <th>modification</th>
+   <th>suppression</th>
+   </thead>
+                <tbody>
+                 {% for blog in b %}
+   <tr>
+   <td>{{ blog.titre }}</td>
+   <td>{{ blog.contenu }}</td>
+   <td>{{ blog.auteur }}</td>
+   <td><a class="btn btn-success" href="{{ path('modifBlog', {'id':blog.id}) }}">Modifier</td>
+   <td><a class="btn btn-danger" href="{{ path('supp_blog', {'id':blog.id}) }}">Supprimer</td>
+   </tr>
+   {% endfor %}
+                 
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+
+</div>
+</div>
+</div>
+{% endblock %}
